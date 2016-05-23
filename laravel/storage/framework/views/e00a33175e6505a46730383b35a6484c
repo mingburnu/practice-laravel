@@ -1,0 +1,19 @@
+<?php if($car != null ): ?>
+        <!DOCTYPE html>
+<html>
+<head>
+    <title>Car <?php echo e($car->id); ?></title>
+</head>
+<body>
+<h1>Car <?php echo e($car->id); ?></h1>
+<ul>
+    <li>Make: <?php echo e($car->make); ?></li>
+    <li>Model: <?php echo e($car->model); ?></li>
+    <li>Produced on: <?php echo e($car->produced_on); ?></li>
+</ul>
+<div><?php echo e($str); ?></div>
+</body>
+</html>
+<?php else: ?>
+    404
+<?php endif; ?>

@@ -38,9 +38,8 @@
     </style>
 </head>
 <body>
-<h1>Hello Laravel</h1>
-
 <div class="container">
+
     <div class="content">
         <div class="title">Laravel 5</div>
         <div class="quote">{{ Inspiring::quote() }}</div>
@@ -51,7 +50,7 @@
 <script>
     alert("hello, laravel");
     $(document).ready(function () {
-        alert("again");
+        alert("hello, pratice");
 
     });
 </script>

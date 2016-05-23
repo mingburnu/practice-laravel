@@ -1,0 +1,34 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+<h1>Edit Car</h1>
+<?php echo Form::model($car,['method' => 'PATCH','route'=>['cars.show',$car->id]]); ?>
+
+<div class="form-group">
+    <?php echo Form::label('PRICE', 'PRICE:'); ?>
+
+    <?php echo Form::text('price',null,['class'=>'form-control']); ?>
+
+    <?php echo Form::label('MAKE', 'MAKE:'); ?>
+
+    <?php echo Form::text('make',null,['class'=>'form-control']); ?>
+
+    <?php echo Form::label('MODEL', 'MODEL:'); ?>
+
+    <?php echo Form::text('model',null,['class'=>'form-control']); ?>
+
+    <?php echo Form::label('PRODUCED_ON', 'PRODUCED_ON:'); ?>
+
+    <?php echo Form::text('produced_on',null,['class'=>'form-control']); ?>
+
+    <div class="form-group">
+        <?php echo Form::submit('Update', ['class' => 'btn btn-primary form-control']); ?>
+
+    </div>
+</div>
+<?php echo Form::close(); ?>
+
+</body>
+</html>

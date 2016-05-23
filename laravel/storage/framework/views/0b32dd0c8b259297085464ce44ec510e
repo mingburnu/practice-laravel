@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Cars</title>
+</head>
+<body>
+
+<?php foreach($cars as $car): ?>
+    <div>
+        <?php echo Form::model($car,['method' => 'DELETE','route'=>['cars.index',$car->id]]); ?>
+
+        <?php echo Form::submit('Delete', ['class' => 'btn btn-primary form-control']); ?>
+
+
+        <form>
+        </form><?php echo e($car->id); ?> / <?php echo e($car->model); ?> / <?php echo e($car->produced_on); ?>
+
+    </div>
+<?php endforeach; ?>
+
+</body>
+</html>
