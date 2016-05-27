@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Hamcrest\Type\IsInteger;
 use Illuminate\Http\Request;
 use App\Car;
 use App\Http\Requests;
@@ -19,7 +20,8 @@ class CarController extends Controller
     {
 //        $cars = Car::all();
 //        $cars = Car::where('model', 'like',  'g3vCnuG2YM%')->take(5)->get();
-        $cars = Car::where('id', '>', 0)->get();
+//        $cars = Car::where('id', 3)->orwhere('id', 6)->get();
+        $cars = Car::where('id', '>', 0)->where('id', '<', PHP_INT_MAX)->get();
         return view('cars.index', array('cars' => $cars));
     }
 
@@ -56,6 +58,7 @@ class CarController extends Controller
     public function show($id)
     {
 //        $car = Car::find($id);
+//        $car = Car::where('id', $id)->get()[0];
         $car = Car::where('id', $id)->first();
         return view('cars.show', array('car' => $car));
     }
