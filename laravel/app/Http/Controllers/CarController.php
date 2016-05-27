@@ -17,7 +17,9 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+//        $cars = Car::all();
+//        $cars = Car::where('model', 'like',  'g3vCnuG2YM%')->take(5)->get();
+        $cars = Car::where('id', '>', 0)->get();
         return view('cars.index', array('cars' => $cars));
     }
 
@@ -53,7 +55,8 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        $car = Car::find($id);
+//        $car = Car::find($id);
+        $car = Car::where('id', $id)->first();
         return view('cars.show', array('car' => $car));
     }
 

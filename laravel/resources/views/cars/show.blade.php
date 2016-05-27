@@ -7,7 +7,7 @@
 <body>
 <h1>Car {{ $car->id }}</h1>
 <ul>
-    <li>PRICE: {{ $car->price }}</li>
+    <li>PRICE: ${{ $car->price }}</li>
     <li>Make: {{ $car->make }}</li>
     <li>Model: {{ $car->model }}</li>
     <li>Produced on: {{ $car->produced_on }}</li>
