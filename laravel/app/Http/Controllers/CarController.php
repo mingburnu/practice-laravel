@@ -21,7 +21,9 @@ class CarController extends Controller
 //        $cars = Car::all();
 //        $cars = Car::where('model', 'like',  'g3vCnuG2YM%')->take(5)->get();
 //        $cars = Car::where('id', 3)->orwhere('id', 6)->get();
-        $cars = Car::where('id', '>', 0)->where('id', '<', PHP_INT_MAX)->get();
+//        $cars = Car::where('id', '>', 0)->where('id', '<', PHP_INT_MAX)->get();
+//        $cars = Car::where('id', '>', 0)->skip(100)->take(5)->get();
+        $cars = Car::skip(0)->take(PHP_INT_MAX)->get();
         return view('cars.index', array('cars' => $cars));
     }
 
