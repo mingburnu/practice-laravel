@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Car;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 
 class CarController extends Controller
@@ -23,7 +24,11 @@ class CarController extends Controller
 //        $cars = Car::where('id', 3)->orwhere('id', 6)->get();
 //        $cars = Car::where('id', '>', 0)->where('id', '<', PHP_INT_MAX)->get();
 //        $cars = Car::where('id', '>', 0)->skip(100)->take(5)->get();
-        $cars = Car::skip(0)->take(PHP_INT_MAX)->get();
+//        $cars = Car::skip(0)->take(PHP_INT_MAX)->get();
+//        $cars = Car::simplePaginate(5);
+//        $cars = Car::paginate(5);
+        $cars = Car::where('id', '>', 0)->where('id', '<', PHP_INT_MAX)->paginate(5);
+
         return view('cars.index', array('cars' => $cars));
     }
 
