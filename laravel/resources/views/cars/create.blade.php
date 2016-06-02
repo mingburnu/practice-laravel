@@ -19,5 +19,6 @@
     </div>
 </div>
 {!! Form::close() !!}
+{!!  $errors->first('price') !!}
 </body>
 </html>

@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Validator;
 
 class CarController extends Controller
 {
@@ -50,10 +51,22 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        $car = Car::create($input);
+        $rules = array(
+            'price' => 'required|numeric|min:1'
+        );
 
-        return view('cars.show', array('car' => $car));
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect('car/create')
+                ->withErrors($validator)// send back all errors to the login form
+                ->withInput($request->all()); // send back the input (not the password) so that we can repopulate the form
+        } else {
+            $input = $request->all();
+            $car = Car::create($input);
+
+            return view('cars.show', array('car' => $car));
+        }
     }
 
     /**
