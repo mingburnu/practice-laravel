@@ -63,6 +63,8 @@ class CarController extends Controller
                 ->withInput($request->all()); // send back the input (not the password) so that we can repopulate the form
         } else {
             $input = $request->all();
+
+//            $input['price']= 1000;
             $car = Car::create($input);
 
             return view('cars.show', array('car' => $car));
