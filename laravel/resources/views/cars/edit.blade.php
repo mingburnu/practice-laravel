@@ -19,5 +19,7 @@
     </div>
 </div>
 {!! Form::close() !!}
+<a href="/car"><button class= 'btn btn-primary form-control'>Cars</button></a>
+{!!  $errors->first('price') !!}
 </body>
 </html>

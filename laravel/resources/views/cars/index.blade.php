@@ -14,7 +14,8 @@
     </style>
 </head>
 <body>
-
+@include('layout.top')
+<hr>
 @foreach($cars as $car)
     <div>
         <hr>
@@ -29,14 +30,14 @@
         {!! Form::submit('Edit', ['class' => 'btn btn-primary form-control']) !!}
         {!! Form::close() !!}
 
+        {!! Form::model($car,['method' => 'GET','route'=>['cars.show',$car->id]]) !!}
+        {!! Form::submit('Show', ['class' => 'btn btn-primary form-control']) !!}
+        {!! Form::close() !!}
+
         <hr>
     </div>
 @endforeach
-{!! $cars->render() !!}
-
-<?php echo 'per page:', $cars->perPage(); ?>&nbsp;
-<?php echo 'total:', $cars->total(); ?>&nbsp;
-<?php echo 'current Page:', $cars->currentPage(); ?>&nbsp;
+{{--{!! $cars->render() !!}--}}
 
 <hr>
 <?php $link_limit = 7; ?>
@@ -51,10 +52,10 @@
             $half_total_links = floor($link_limit / 2);
             $from = $cars->currentPage() - $half_total_links;
             $to = $cars->currentPage() + $half_total_links;
-            if($cars->currentPage() < $half_total_links) {
+            if ($cars->currentPage() < $half_total_links) {
                 $to += $half_total_links - $cars->currentPage();
             }
-            if($cars->lastPage() - $cars->currentPage() < $half_total_links) {
+            if ($cars->lastPage() - $cars->currentPage() < $half_total_links) {
                 $from -= $half_total_links - ($cars->lastPage() - $cars->currentPage()) - 1;
             }
             ?>
@@ -69,5 +70,8 @@
         </li>
     </ul>
 @endif
+<?php echo 'per page:', $cars->perPage(); ?>&nbsp;
+<?php echo 'total:', $cars->total(); ?>&nbsp;
+<?php echo 'current Page:', $cars->currentPage(); ?>&nbsp;
 </body>
 </html>

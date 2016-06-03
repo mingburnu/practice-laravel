@@ -107,12 +107,23 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $input = $request->all();
-        $car = Car::find($id);
-        $car->update($input);
+        $rules = array(
+            'price' => 'required|numeric|min:1'
+        );
 
-        return view('cars.show')->with('car', $car);
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect('car/create')
+                ->withErrors($validator)// send back all errors to the login form
+                ->withInput($request->all()); // send back the input (not the password) so that we can repopulate the form
+        } else {
+            $input = $request->all();
+            $car = Car::find($id);
+            $car->update($input);
+
+            return view('cars.show')->with('car', $car);
+        }
     }
 
     /**
@@ -126,11 +137,5 @@ class CarController extends Controller
         //
         Car::find($id)->delete();
         return view('cars.index', array('cars' => Car::all()));
-    }
-
-    public function test($id, $str)
-    {
-        $car = Car::find($id);
-        return view('test', array('car' => $car), array('str' => $str));
     }
 }

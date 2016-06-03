@@ -14,6 +14,7 @@
 </ul>
 </body>
 </html>
+<a href="/car"><button>Cars</button></a>
 @else
     <h1>404</h1>
 @endif

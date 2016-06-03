@@ -45,13 +45,18 @@
         <div class="quote">{{ Inspiring::quote() }}</div>
         <div><h5>Laravel was installed with <a href="http://turnkeylinux.org">TurnKey Linux</a>.</h5></div>
     </div>
+
+</div>
+<br>
+
+<div>
+    @if(\Illuminate\Support\Facades\Auth::user() != null )
+        <a href="/logout"><button>LOGOUT</button></a>
+        <a href="/car"><button>Cars</button></a>
+    @else
+        <a href="/login"><button>LOGIN</button></a>
+    @endif
+
 </div>
 </body>
-<script>
-    alert("hello, laravel");
-    $(document).ready(function () {
-        alert("hello, pratice");
-
-    });
-</script>
 </html>

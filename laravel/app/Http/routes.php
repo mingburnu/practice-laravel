@@ -32,8 +32,6 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::delete('/car/{id}', ['as' => 'cars.index', 'uses' => 'CarController@destroy']);
 
-        Route::get('/car/{id}/{str}', ['as' => 'test', 'uses' => 'CarController@test']);
-
 });
 
 Route::get('/login', ['as' => 'login', 'uses' => 'UserController@showLogin']);

@@ -90,8 +90,12 @@ class UserController extends Controller
 
     public function showLogin()
     {
-        // show the form
-        return view('login')->with(array('miss' => "please"));
+        if (Auth::user() == null) {
+            // show the form
+            return view('login')->with(array('miss' => ""));
+        } else {
+            return view('welcome');
+        }
     }
 
     public function doLogin(Request $request)
@@ -124,12 +128,13 @@ class UserController extends Controller
                 // redirect them to the secure section or whatever
                 // return Redirect::to('secure');
                 // for now we'll just echo success (even though echoing in a controller is bad)
-                echo 'SUCCESS!';
+//                echo 'SUCCESS!';
+                return view('welcome');
 
             } else {
 
                 // validation not successful, send back to form
-                return view('login')->with(array('miss' => "errorrrr"));
+                return view('login')->with(array('miss' => "email or password error!"));
 
             }
 
