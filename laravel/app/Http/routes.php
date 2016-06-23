@@ -18,19 +18,19 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
 
-        Route::get('/car', ['as' => 'cars.index', 'uses' => 'CarController@index']);
+    Route::get('/car', ['as' => 'cars.index', 'uses' => 'CarController@index']);
 
-        Route::get('/car/create', ['as' => 'cars.create', 'uses' => 'CarController@create']);
+    Route::get('/car/create', ['as' => 'cars.create', 'uses' => 'CarController@create']);
 
-        Route::post('/car/store', ['as' => 'cars.show', 'uses' => 'CarController@store']);
+    Route::post('/car/store', ['as' => 'cars.show', 'uses' => 'CarController@store']);
 
-        Route::get('/car/{id}', ['as' => 'cars.show', 'uses' => 'CarController@show']);
+    Route::get('/car/{id}', ['as' => 'cars.show', 'uses' => 'CarController@show']);
 
-        Route::get('/car/{id}/edit', ['as' => 'cars.edit', 'uses' => 'CarController@edit']);
+    Route::get('/car/{id}/edit', ['as' => 'cars.edit', 'uses' => 'CarController@edit']);
 
-        Route::patch('/car/{id}', ['as' => 'cars.show', 'uses' => 'CarController@update']);
+    Route::patch('/car/{id}', ['as' => 'cars.show', 'uses' => 'CarController@update']);
 
-        Route::delete('/car/{id}', ['as' => 'cars.index', 'uses' => 'CarController@destroy']);
+    Route::delete('/car/{id}', ['as' => 'cars.index', 'uses' => 'CarController@destroy']);
 
 });
 

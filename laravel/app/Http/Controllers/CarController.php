@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Hamcrest\Type\IsInteger;
 use Illuminate\Http\Request;
 use App\Car;
@@ -10,7 +8,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Validator;
-
 class CarController extends Controller
 {
     /**
@@ -29,10 +26,8 @@ class CarController extends Controller
 //        $cars = Car::simplePaginate(5);
 //        $cars = Car::paginate(5);
         $cars = Car::where('id', '>', 0)->where('id', '<', PHP_INT_MAX)->paginate(5);
-
         return view('cars.index', array('cars' => $cars));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -42,7 +37,6 @@ class CarController extends Controller
     {
         return view('cars.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -54,23 +48,18 @@ class CarController extends Controller
         $rules = array(
             'price' => 'required|numeric|min:1'
         );
-
         $validator = Validator::make($request->all(), $rules);
-
         if ($validator->fails()) {
             return redirect('car/create')
                 ->withErrors($validator)// send back all errors to the login form
                 ->withInput($request->all()); // send back the input (not the password) so that we can repopulate the form
         } else {
             $input = $request->all();
-
 //            $input['price']= 1000;
             $car = Car::create($input);
-
             return view('cars.show', array('car' => $car));
         }
     }
-
     /**
      * Display the specified resource.
      *
@@ -84,7 +73,6 @@ class CarController extends Controller
         $car = Car::where('id', $id)->first();
         return view('cars.show', array('car' => $car));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -97,7 +85,6 @@ class CarController extends Controller
         //
         return view('cars.edit')->with('car', $car);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -110,9 +97,7 @@ class CarController extends Controller
         $rules = array(
             'price' => 'required|numeric|min:1'
         );
-
         $validator = Validator::make($request->all(), $rules);
-
         if ($validator->fails()) {
             return redirect('car/create')
                 ->withErrors($validator)// send back all errors to the login form
@@ -121,11 +106,9 @@ class CarController extends Controller
             $input = $request->all();
             $car = Car::find($id);
             $car->update($input);
-
             return view('cars.show')->with('car', $car);
         }
     }
-
     /**
      * Remove the specified resource from storage.
      *

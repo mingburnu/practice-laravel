@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Middleware;
-
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
-
 class Authenticate
 {
     /**
@@ -13,7 +10,6 @@ class Authenticate
      * @var Guard
      */
     protected $auth;
-
     /**
      * Create a new filter instance.
      *
@@ -24,7 +20,6 @@ class Authenticate
     {
         $this->auth = $auth;
     }
-
     /**
      * Handle an incoming request.
      *
@@ -42,7 +37,6 @@ class Authenticate
 //            }
             return redirect()->guest('login');
         }
-
         return $next($request);
     }
 }
