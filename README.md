@@ -5,8 +5,9 @@ composer require "illuminate/html":"5.0.*"
 
 Open /config/app.php
 
- 'providers' => [ ...
+ 'providers' => [ 
 
+...
 Illuminate\Html\HtmlServiceProvider::class,
 
 ],
