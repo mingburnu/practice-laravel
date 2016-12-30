@@ -8,6 +8,7 @@ Open /config/app.php
  'providers' => [ 
 
 ...
+
 Illuminate\Html\HtmlServiceProvider::class,
 
 ],
