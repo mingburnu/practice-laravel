@@ -30,9 +30,9 @@ edit /database/migrations/2016_05_20_072605_create_cars_table.php
     });
     }
 
-> php artisan migrate;
-> php artisan make:controller CarController;
-> php artisan make:seeder carsTableSeeder;
+> php artisan migrate;<br>
+> php artisan make:controller CarController;<br>
+> php artisan make:seeder carsTableSeeder;<br>
 
 edit /database/seeds/carsTableSeeder
 
@@ -66,14 +66,14 @@ edit /database/seeds/DatabaseSeeder.php
         Model::reguard();
     }
 
-> php artisan db:seed;
-> chmod -R 777 /var/www/laravel/public/*
-> cd /var/www/laravel/storage
-> chmod -R 777 *
-> php artisan view:clear; 
-> php artisan route:clear;
-> php artisan cache:clear;
-> php artisan clear-compiled; 
-> php artisan optimize;
-> php artisan config:cache;
-> php artisan route:cache;
+> php artisan db:seed;<br>
+> chmod -R 777 /var/www/laravel/public/*<br>
+> cd /var/www/laravel/storage<br>
+> chmod -R 777 *<br>
+> php artisan view:clear;<br>
+> php artisan route:clear;<br>
+> php artisan cache:clear;<br>
+> php artisan clear-compiled;<br>
+> php artisan optimize;<br>
+> php artisan config:cache;<br>
+> php artisan route:cache;<br>
