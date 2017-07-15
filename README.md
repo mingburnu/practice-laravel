@@ -70,6 +70,7 @@ edit /database/seeds/DatabaseSeeder.php
 > chmod -R 777 /var/www/laravel/public/*<br>
 > cd /var/www/laravel/storage<br>
 > chmod -R 777 *<br>
+>
 > php artisan view:clear;<br>
 > php artisan route:clear;<br>
 > php artisan cache:clear;<br>
