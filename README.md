@@ -2,7 +2,7 @@ set RAM > 1G
 
 > composer require "illuminate/html":"5.0.*"
 
-Open /config/app.php
+[edit /config/app.php](https://github.com/mingburnu/laravel-practice/blob/master/laravel/config/app.php)
 
     'providers' => [ 
     ...
@@ -17,7 +17,7 @@ Open /config/app.php
 
 > php artisan make:model Car --migration
 
-edit /database/migrations/2016_05_20_072605_create_cars_table.php
+[edit /database/migrations/2016_05_20_072605_create_cars_table.php](https://github.com/mingburnu/laravel-practice/blob/master/laravel/database/migrations/2016_06_23_095721_create_cars_table.php)
 
     public function up() {
     Schema::create('cars', function (Blueprint $table) { 
@@ -34,7 +34,7 @@ edit /database/migrations/2016_05_20_072605_create_cars_table.php
 > php artisan make:controller CarController;<br>
 > php artisan make:seeder carsTableSeeder;<br>
 
-edit /database/seeds/carsTableSeeder
+[edit /database/seeds/carsTableSeeder](https://github.com/mingburnu/laravel-practice/blob/master/laravel/database/seeds/carsTableSeeder.php)
 
     public function run()
     {
@@ -58,7 +58,7 @@ edit /database/seeds/carsTableSeeder
         ]);
     }
 
-edit /database/seeds/DatabaseSeeder.php
+[edit /database/seeds/DatabaseSeeder.php](https://github.com/mingburnu/laravel-practice/blob/master/laravel/database/seeds/DatabaseSeeder.php)
 
     public function run() {
         Model::unguard();
